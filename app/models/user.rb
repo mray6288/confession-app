@@ -5,15 +5,15 @@ class User < ApplicationRecord
 
 	has_secure_password
 
-
 	def self.most_comments
+		all.order(:comments.count).last
 	end
 
 	def self.most_confessions
+		all.order(:confessions.count).last
 	end
 
 	def self.longest_username
-	end
-
-	
+		all.order(:username.length).last
+	end	
 end
