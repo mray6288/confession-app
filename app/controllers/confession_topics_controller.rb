@@ -1,0 +1,2 @@
+class ConfessionTopicsController < ApplicationController
+end

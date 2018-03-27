@@ -1,0 +1,9 @@
+<%= form_for @confession do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :text %>
+	<%= f.text_area :text %>
+	<%= f.collection_check_boxes :topics, Topic.all, :id, :name %>
+	
+	<%= f.submit %>
+<% end %>

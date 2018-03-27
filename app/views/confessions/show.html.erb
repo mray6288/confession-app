@@ -1,0 +1,12 @@
+<h1><%= @confession.title %></h1>
+
+<p><%= @confession.text %></p>
+
+
+<%= form_for @comment do |f| %>
+	<%= f.label :text %>
+	<%= f.text_area :text %>
+	<%= f.submit %>
+<% end %>
+<br>
+

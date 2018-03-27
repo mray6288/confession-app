@@ -1,0 +1,2 @@
+module ConfessionTopicsHelper
+end

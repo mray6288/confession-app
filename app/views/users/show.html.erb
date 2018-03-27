@@ -1,0 +1,9 @@
+<h1><%= @user.username %></h1>
+
+Confessions: <%= @user.confessions.count %>
+<br>
+Comments:
+<% @user.comments.each do |comment| %>
+	<%= link_to comment.confession, comment.confession %>
+	<%= comment.text %>
+<% end %>

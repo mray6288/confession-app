@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ConfessionApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  	<% if session[:user_id] %>
+  		<%= link_to 'Post Confession', :new_confession %>
+  		<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+        <input type=submit value='logout'>
+      <% end %>
+  	<% else %>
+  	<% end %>
+
+    <%= yield %>
+  </body>
+</html>
