@@ -1,9 +1,13 @@
 <h1><%= @user.username %></h1>
 
-Confessions: <%= @user.confessions.count %>
-<br>
+Confessions: <%= @user.confessions.count %><br>
+<% @user.confessions.each do |x| %>
+<%= link_to x.title, x %>
+<% end %>
+<br><br>
+
 Comments:
 <% @user.comments.each do |comment| %>
-	<%= link_to comment.confession, comment.confession %>
+	<%= link_to comment.confession, comment.confession %><br>
 	<%= comment.text %>
 <% end %>

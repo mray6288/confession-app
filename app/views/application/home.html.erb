@@ -1,2 +1,6 @@
+<h1>This is a place where confessions live in peace. </h1>
+
+<% if !session[:user_id] %>
 <h1><%= link_to 'Login', 'login' %></h1>
 <h1><%= link_to 'Sign Up', 'signup' %></h1>
+<% end %>

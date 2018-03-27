@@ -1,12 +1,14 @@
 <h1><%= @confession.title %></h1>
-
 <p><%= @confession.text %></p>
 
+<br>
 
 <%= form_for ([@confession, @confession.comments.build]) do |f| %>
-	<%= f.label :text %>
+	<%= f.label 'Add Comment:' %>
 	<%= f.text_area :text %>
+
 	<%= f.submit %>
 <% end %>
 <br>
 
+<p><%= link_to 'Back to Confessions', '/confessions' %></p>
