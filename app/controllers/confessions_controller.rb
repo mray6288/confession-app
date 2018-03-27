@@ -23,6 +23,6 @@ class ConfessionsController < ApplicationController
 	private
 
 	def confession_params
-		params.require(:confession).permit(:title, :text, :topic_attributes)
+		params.require(:confession).permit(:title, :text, topic_attributes:[:text])
 	end
 end
