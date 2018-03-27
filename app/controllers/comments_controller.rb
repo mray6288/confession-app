@@ -1,21 +1,14 @@
 class CommentsController < ApplicationController
 
-	def new
+  def create
+  	byebug
+    @comment = Comment.create(comment_params)
+    redirect_to @comment.post
+  end
 
-	end
+  private
 
-	def create
-		# @confession.comments = Comment.create(comment_params)
-		@confession = Confession.find(params[:confession_id])
-		byebug
-        @comment = @confession.comments.create(comment_params)
-        redirect_to @confession
-
-	end
-
-	private
-
-	def comment_params
-		params.require(:comment).permit(:text)
-	end
+  def comment_params
+    params.require(:comment).permit(:text, :confession_id, :user_id)
+  end
 end

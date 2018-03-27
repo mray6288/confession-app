@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 	resources :confession_topics
 	resources :topics
-	
-	resources :confessions do
-		resources :comments
-	end
+	resources :comments
+	resources :confessions
+		
 	resource :users, only: [:create]
 	get '/profile/:id', to: 'users#show', as: 'user'
 	get '/signup',  to: 'users#new', as: 'signup'

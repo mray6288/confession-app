@@ -1,12 +1,14 @@
 class Confession < ApplicationRecord
-	has_many :confessiontopics
-	has_many :topics, through: :confessiontopics
+	has_many :confession_topics
+	has_many :topics, through: :confession_topics
 	has_many :comments
 	belongs_to :user
-	accepts_nested_attributes_for :topics
+	# accepts_nested_attributes_for :topics
+	accepts_nested_attributes_for :comments, allow_destroy: true
 
-	def topic_attributes=(topic)
-		new_topic = Topic.find_or_create_by(name: topic.name)
-		topics << new_topic		
+	def topics_attributes=(attributes)
+		topic = Topic.find_or_create_by(name: attributes[:name])
+		topics << topic		
 	end
+
 end
