@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 	resources :confessions
 		
 	resource :users, only: [:create]
-	get '/profile/:id', to: 'users#show', as: 'user'
+	get '/profile', to: 'users#show', as: 'user'
 	get '/signup',  to: 'users#new', as: 'signup'
 	get '/login', to: 'sessions#new', as: 'login'
 	post 'logout', to: 'sessions#destroy', as: 'logout'
