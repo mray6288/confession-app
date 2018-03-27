@@ -3,7 +3,7 @@
 <p><%= @confession.text %></p>
 
 
-<%= form_for @comment do |f| %>
+<%= form_for ([@confession, @confession.comments.build]) do |f| %>
 	<%= f.label :text %>
 	<%= f.text_area :text %>
 	<%= f.submit %>

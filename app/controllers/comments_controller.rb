@@ -5,9 +5,11 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@comment = Comment.create(comment_params)
-		# byebug
-		# redirect_to 
+		# @confession.comments = Comment.create(comment_params)
+		@confession = Confession.find(params[:confession_id])
+		byebug
+        @comment = @confession.comments.create(comment_params)
+        redirect_to @confession
 
 	end
 
