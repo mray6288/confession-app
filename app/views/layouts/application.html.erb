@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ConfessionApp</title>
+    <title>Confession Planet</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,9 +11,11 @@
   <body>
 
   	<% if session[:user_id] %>
+    <%= link_to 'Home', '/confessions' %>
   		<%= link_to 'Post Confession', :new_confession %>
+      <%= link_to 'Profile', '/profile/:id' %>
   		<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-        <input type=submit value='logout'>
+        <input type=submit value='Logout'>
       <% end %>
   	<% else %>
   	<% end %>
