@@ -7,8 +7,10 @@ class Confession < ApplicationRecord
 	accepts_nested_attributes_for :comments, allow_destroy: true
 
 	def topics_attributes=(attributes)
-		topic = Topic.find_or_create_by(name: attributes[:name])
-		topics << topic		
+		if !attributes['0'][:name].blank?
+			topic = Topic.find_or_create_by(name: attributes['0'][:name])
+			topics << topic
+		end
 	end
 
 end
