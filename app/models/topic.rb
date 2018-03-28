@@ -4,12 +4,14 @@ class Topic < ApplicationRecord
 
 
 	def self.most_confessions
+		all.order(:confessions.count).last
 	end
 
 	def self.most_comments
+		all.order(:comments.count).last
 	end
 
 	def self.alphabetically
+		all.order(:name)
 	end
-	
 end
