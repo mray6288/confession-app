@@ -23,7 +23,7 @@ class Confession < ApplicationRecord
 	end
 
 	def self.most_comments
-		joins(:comments).group(:confession_id).order('count(confession_id) desc').first
+		joins(:comments).group(:confession_id).order('count(confession_id) desc').limit(1)
 	end
 
 	def self.alphabetically_by_title
@@ -35,7 +35,7 @@ class Confession < ApplicationRecord
 	end
 
 	def self.most_topics
-		joins(:confession_topics).group(:confession_id).order('count(confession_id) desc').first
+		joins(:confession_topics).group(:confession_id).order('count(confession_id) desc').limit(1)
 	end
 
 	def self.longest_title
@@ -47,7 +47,7 @@ class Confession < ApplicationRecord
 	end
 
 	def self.most_recent
-		all.last
+		all.order('id desc').limit(1)
 	end
 
 	def self.most_recent_5

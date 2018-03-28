@@ -6,14 +6,14 @@ class User < ApplicationRecord
 	has_secure_password
 
 	def self.most_comments
-		all.order(:comments.count).last
+		joins(:comments).group(:user_id).order('count(user_id) desc').limit(1)
 	end
 
 	def self.most_confessions
-		all.order(:confessions.count).last
+		joins(:confessions).group(:user_id).order('count(user_id) desc').limit(1)
 	end
 
 	def self.longest_username
-		all.order(:username.length).last
-	end	
+		all.order('length(username) desc').limit(1)
+	end
 end

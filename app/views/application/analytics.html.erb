@@ -1,2 +1,66 @@
 <h1>Confession Analytics</h1>
+<table>
+	<th><h2>Confessions</h2></th>
+	<th><h2>Users</h2></th>
+	<th><h2>Topics</h2></th>
+	<th><h2>Comments</h2></th>
+<tbody>
+<tr>
+<td valign='top'><ul>
+	<% @confession_methods.each do |method| %>
+		<li><%= method.to_s.gsub('_',' ').capitalize %>:
+		<ul>
+			<% Confession.send(method).each do |result| %>
+			<li><%=  link_to result.title, result %></li>
+			<% end %>
+		</ul> 
+		</li>
+	<% end %>
+</ul>
+</td>
 
+<td valign='top'>
+<ul>
+	<% @user_methods.each do |method| %>
+		<li><%= method.to_s.gsub('_',' ').capitalize %>:
+			<ul>
+			<% User.send(method).each do |result| %>
+			<li><%=  result.username %></li>
+			<% end %>
+		</ul> 
+		</li>
+	<% end %>
+</ul>
+</td>
+
+<td valign='top'>
+<ul>
+	<% @topic_methods.each do |method| %>
+		<li><%= method.to_s.gsub('_',' ').capitalize %>:
+			<ul>
+			<% Topic.send(method).each do |result| %>
+			<li><%=  result.name %></li>
+			<% end %>
+		</ul> 
+		</li>
+	<% end %>
+</ul>
+</td>
+
+<td valign='top'>
+<ul>
+	<% @comment_methods.each do |method| %>
+		<li><%= method.to_s.gsub('_',' ').capitalize %>:
+			<ul>
+			<% Comment.send(method).each do |result| %>
+			<li><%= link_to result.confession.title, result.confession %> - <%=  result.text %></li>
+			<% end %>
+		</ul> 
+		</li>
+	<% end %>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table>

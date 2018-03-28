@@ -4,11 +4,11 @@ class Topic < ApplicationRecord
 
 
 	def self.most_confessions
-		all.order(:confessions.count).last
+		joins(:confession_topics).group(:confession_id).order('count(topic_id) desc').limit(1)
 	end
 
-	def self.most_comments
-		all.order(:comments.count).last
+	def self.with_multiple_topics
+  		joins(:confession_topics).group('topic_id').having('count(topic_id) > 1')
 	end
 
 	def self.alphabetically

@@ -4,7 +4,7 @@
 
 <strong>Topics</strong><br>
 <% @confession.topics.each do |topic|%>
-	<%= topic.name %><br>
+	<%= link_to topic.name, topic %><br>
 <% end %>
 <br>
 
