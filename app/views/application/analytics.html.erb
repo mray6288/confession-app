@@ -42,7 +42,7 @@
 		<li><%= method.to_s.gsub('_',' ').capitalize %>:
 			<ul>
 			<% Topic.send(method).each do |result| %>
-			<li><%=  result.name %></li>
+			<li><%=  link_to result.name, result %></li>
 			<% end %>
 		</ul> 
 		</li>
