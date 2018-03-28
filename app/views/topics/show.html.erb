@@ -1,0 +1,11 @@
+<div style='padding-left: 20px;'>
+
+<br><h2><%= @topic.name %></h2>
+<% @topic.confessions.each do |x| %>
+<%= link_to x.title, x %><br>
+<% end %>
+<br><br>
+
+<p><%= link_to 'Back to analytics', '/analytics' %></p>
+
+</div>
