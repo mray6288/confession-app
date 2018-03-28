@@ -1,5 +1,7 @@
-<h1>All the Confessions</h1>
+<div style='padding-left: 20px;'>
+<br><h2>Confessions Feed</h2>
 
 <% @confessions.each do |conf| %>
 	<%= link_to conf.title, conf %> - <%= pluralize(conf.comments.count, 'comment') %><br>
 <% end %>
+</div>

@@ -1,4 +1,5 @@
-<h1><%= @confession.title%></h1>
+<div style='padding-left: 20px;'><br>
+<h2><%= @confession.title%></h2>
 
 <p><%= @confession.text%></p>
 
@@ -25,3 +26,4 @@ New Comment
 <%= render 'comment_form' %><br>
 
 <p><%= link_to 'Back to Confessions', '/confessions' %></p>
+</div>
