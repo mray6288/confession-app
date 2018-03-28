@@ -26,7 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   def analytics
-    
+    @confession_methods = (Confession.methods - ActiveRecord::Base.methods)[0..9]
+    @user_methods = [:most_comments, :most_confessions, :longest_username]
+    @comment_methods = (Comment.methods - ActiveRecord::Base.methods)
+    @topic_methods = [:most_confessions, :alphabetically, :with_multiple_topics]
   end
   
 end
