@@ -14,35 +14,44 @@ class Confession < ApplicationRecord
 	end
 
 
-	def self.longest
-
+	def self.longest_text
+		all.order('length(text) desc').limit(1)
 	end
 
-	def self.shortest
+	def self.shortest_text
+		all.order('length(text)').limit(1)
 	end
 
 	def self.most_comments
+		joins(:comments).group(:confession_id).order('count(confession_id) desc').first
 	end
 
-	def self.alphabetically
+	def self.alphabetically_by_title
+		all.order(:title)
 	end
 
 	def self.multiple_topics
+		joins(:confession_topics).group(:confession_id).having('count(confession_id) > 1')
 	end
 
 	def self.most_topics
+		joins(:confession_topics).group(:confession_id).order('count(confession_id) desc').first
 	end
 
 	def self.longest_title
+		all.order('length(title) desc').limit(1)
 	end
 
 	def self.shortest_title
+		all.order('length(title)').limit(1)
 	end
 
 	def self.most_recent
+		all.last
 	end
 
 	def self.most_recent_5
+		all.order('id desc').limit(5)
 	end
 
 end
