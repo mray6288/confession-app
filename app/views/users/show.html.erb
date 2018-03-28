@@ -1,13 +1,17 @@
-<h1><%= @user.username %></h1>
+<div style='padding-left: 20px;'>
 
-<h3>Confessions: <%= @user.confessions.count %><br></h3>
+<br><h1><%= @user.username %></h1>
+
+<h4>Confessions: <%= @user.confessions.count %><br></h3>
 <% @user.confessions.each do |x| %>
 <%= link_to x.title, x %><br>
 <% end %>
 <br><br>
 
-<h3>Comments: <%= @user.comments.count %><br></h3>
+<h4>Comments: <%= @user.comments.count %><br></h3>
 <% @user.comments.each do |comment| %>
-	<%= link_to comment.confession.title, comment.confession %><br>
-	<%= comment.text %><br><br>
+	<%= comment.text %><br>
+	<%= link_to comment.confession.title, comment.confession %><br><br>
 <% end %>
+
+</div>
