@@ -2,24 +2,26 @@
 
 <p><%= @confession.text%></p>
 
-Topics:
+<strong>Topics</strong><br>
 <% @confession.topics.each do |topic|%>
-	<%= topic.name %>
+	<%= topic.name %><br>
 <% end %>
-<br><br>
+<br>
 
-
+<% if @confession.comments.count > 0 %>
+<strong>Comments</strong><br>
+<% end %>
 <% @confession.comments.each do |comment|%>
 	<% if comment.user %>
-		<%= comment.user.username %> says: 
-	<% end %><br>
+		<%= comment.user.username %>:
+	<% end %>
 	<%= comment.text %><br>
 <% end %>
 <br>
 
 
 
-New Comment:
-<%= render 'comment_form' %>
+New Comment
+<%= render 'comment_form' %><br>
 
 <p><%= link_to 'Back to Confessions', '/confessions' %></p>
