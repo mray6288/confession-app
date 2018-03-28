@@ -24,5 +24,9 @@ class ApplicationController < ActionController::Base
   		redirect_to 'application#home'
   	end
   end
+
+  def analytics
+    
+  end
   
 end
