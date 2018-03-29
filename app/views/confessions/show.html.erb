@@ -16,10 +16,9 @@
 	<% if comment.user %>
 		<%= comment.user.username %>:
 	<% end %>
-	<%= comment.text %>
-<% end %>
+	<%= comment.text %><br>
+<% end %><br>
 
-New Comment
 <%= render 'comment_form' %><br>
 
 <p><%= link_to 'Back to Confessions', '/confessions' %></p>

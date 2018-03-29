@@ -1,12 +1,10 @@
 <%= form_for @confession do |f| %>
-	<%= f.label :title %><br>
-	<%= f.text_field :title %><br><br>
-	<%= f.label :text %><br>
-	<%= f.text_area :text %><br><br>
+	<br><%= f.text_field :title, placeholder: 'Title' %><br><br>
+	<%= f.text_field :text, placeholder: 'Description' %><br><br>
 	Select Topic <br>
 	<%= f.collection_check_boxes :topic_ids, Topic.all, :id, :name %><br>
 	<%= f.fields_for :topics, @confession.topics.build do |topic_fields|%>
-	Create New Topic <br><%= topic_fields.text_field :name %>
+	<br><%= topic_fields.text_field :name, placeholder: 'Create New Topic' %>
 	<% end %>
 	<%= f.submit %>
 <% end %>

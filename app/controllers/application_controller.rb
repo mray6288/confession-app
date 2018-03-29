@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def index
-  	redirect_to :signup unless current_user
+  	redirect_to '/' unless current_user
     @confessions = Confession.all
   end
 
@@ -31,5 +31,5 @@ class ApplicationController < ActionController::Base
     @comment_methods = (Comment.methods - ActiveRecord::Base.methods)
     @topic_methods = [:most_confessions, :alphabetically, :with_multiple_topics]
   end
-  
+
 end

@@ -1,14 +1,14 @@
 <div style='padding-left: 20px;'>
 
-<br><h2><%= @user.username %></h2>
+<br><h2><%= @user.username %></h2><br>
 
-<h4>Confessions: <%= @user.confessions.count %><br></h3>
+<h5 style='font-weight: 300;'>Confessions: <%= @user.confessions.count %><br></h3>
 <% @user.confessions.each do |x| %>
 <%= link_to x.title, x %><br>
 <% end %>
 <br><br>
 
-<h4>Comments: <%= @user.comments.count %><br></h3>
+<h5 style='font-weight: 300;'>Comments: <%= @user.comments.count %><br></h3>
 <% @user.comments.each do |comment| %>
 	<%= comment.text %><br>
 	<%= link_to comment.confession.title, comment.confession %><br><br>
