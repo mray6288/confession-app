@@ -16,11 +16,8 @@
 	<% if comment.user %>
 		<%= comment.user.username %>:
 	<% end %>
-	<%= comment.text %><br>
+	<%= comment.text %>
 <% end %>
-<br>
-
-
 
 New Comment
 <%= render 'comment_form' %><br>

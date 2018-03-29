@@ -1,5 +1,4 @@
-
-<h1>Confession Analytics</h1>
+<br><h1>Confession Analytics</h1>
 <table>
 	<th><h2>Confessions</h2></th>
 	<th><h2>Users</h2></th>
@@ -14,7 +13,7 @@
 			<% Confession.send(method).each do |result| %>
 			<li><%=  link_to result.title, result %></li>
 			<% end %>
-		</ul> 
+		</ul>
 		</li>
 	<% end %>
 </ul>
@@ -30,7 +29,7 @@
 			<% User.send(method).each do |result| %>
 			<li><%=  result.username %></li>
 			<% end %>
-		</ul> 
+		</ul>
 		</li>
 	<% end %>
 </ul>
@@ -44,7 +43,7 @@
 			<% Topic.send(method).each do |result| %>
 			<li><%=  link_to result.name, result %></li>
 			<% end %>
-		</ul> 
+		</ul>
 		</li>
 	<% end %>
 </ul>
@@ -58,7 +57,7 @@
 			<% Comment.send(method).each do |result| %>
 			<li><%= link_to result.confession.title, result.confession %> - <%=  result.text %></li>
 			<% end %>
-		</ul> 
+		</ul>
 		</li>
 	<% end %>
 </ul>
@@ -69,4 +68,3 @@
 </table>
 
 </div>
-

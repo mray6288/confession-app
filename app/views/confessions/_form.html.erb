@@ -3,9 +3,10 @@
 	<%= f.text_field :title %><br><br>
 	<%= f.label :text %><br>
 	<%= f.text_area :text %><br><br>
-	Topic:<br> <%= f.collection_check_boxes :topic_ids, Topic.all, :id, :name %><br>
+	Select Topic <br>
+	<%= f.collection_check_boxes :topic_ids, Topic.all, :id, :name %><br>
 	<%= f.fields_for :topics, @confession.topics.build do |topic_fields|%>
-		Or Create Other Topic: <%= topic_fields.text_field :name %><br>
+	Create New Topic <br><%= topic_fields.text_field :name %>
 	<% end %>
 	<%= f.submit %>
 <% end %>
